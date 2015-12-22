@@ -78,11 +78,11 @@
             // nameBox
             // 
             this.nameBox.BackColor = System.Drawing.Color.Black;
-            this.nameBox.Font = new System.Drawing.Font("Copperplate Gothic Bold", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameBox.Font = new System.Drawing.Font("Copperplate Gothic Bold", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameBox.ForeColor = System.Drawing.Color.White;
             this.nameBox.Location = new System.Drawing.Point(305, 457);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(199, 49);
+            this.nameBox.Size = new System.Drawing.Size(199, 40);
             this.nameBox.TabIndex = 5;
             this.nameBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.nameBox.TextChanged += new System.EventHandler(this.nameBox_TextChanged);
@@ -119,6 +119,8 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HeroMaker";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DragonEra";

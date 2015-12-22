@@ -4,7 +4,7 @@ namespace GameProject.Characters
 {
     public class Assasin : Hero
     {
-        private const int AssasinDamage = 200;
+        private const int AssasinDamage = 250;
         private const int AssasinsHealth = 300;
 
         public Assasin(string name) 
@@ -12,9 +12,9 @@ namespace GameProject.Characters
         {
         }
 
-        public void Heal()
+        public void Execute(Onyx onyx)
         {
-            this.Health += 200;
+            onyx.Health -= Game.hero.AttackDamage * 3;
         }
 
     }

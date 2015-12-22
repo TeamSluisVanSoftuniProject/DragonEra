@@ -58,6 +58,7 @@ namespace GameProject.Forms
             AcceptButton.Visible = false;
             CompleteButton.Enabled = false;         
             MessageBox.Show("Quest Accepted.");
+            this.Close();
         }
     }
 }

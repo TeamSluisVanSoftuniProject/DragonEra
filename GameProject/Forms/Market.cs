@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using GameProject.Characters;
 using GameProject.Enums;
 using GameProject.Items;
 using GameProject.Items.AttackItems;
@@ -38,7 +39,7 @@ namespace GameProject.Forms
             }
             else
             {
-                MessageBox.Show("You don't have enough gold.");
+                MessageBox.Show(Constants.NotEnoughGold);
             }
         }
 
@@ -48,7 +49,7 @@ namespace GameProject.Forms
             {
                 if (Game.hero.Gold < daggers.Price)
                 {
-                    MessageBox.Show("You don't have enough gold");
+                    MessageBox.Show(Constants.NotEnoughGold);
                 }
                 else
                 {
@@ -60,10 +61,8 @@ namespace GameProject.Forms
             }
             else
             {
-                MessageBox.Show("You need to be an Assasin to buy this item.");
+                MessageBox.Show(Constants.NeedToBeAssasin);
             }
-
-
             BuyDaggersButton.Enabled = false;
         }
 
@@ -73,7 +72,7 @@ namespace GameProject.Forms
             {
                 if (Game.hero.Gold < staff.Price)
                 {
-                    MessageBox.Show("You don't have enough gold");
+                    MessageBox.Show(Constants.NotEnoughGold);
                 }
                 else
                 {
@@ -85,7 +84,7 @@ namespace GameProject.Forms
             }
             else
             {
-                MessageBox.Show("You need to be a Wizard to buy this item.");
+                MessageBox.Show(Constants.NeedToBeWizard);
             }
 
 

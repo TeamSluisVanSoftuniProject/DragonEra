@@ -80,6 +80,8 @@
             this.Controls.Add(this.QuitButton);
             this.Controls.Add(this.PlayAgainButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EndGame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DragonEra";

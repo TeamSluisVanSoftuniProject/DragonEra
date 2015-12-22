@@ -5,10 +5,9 @@ namespace GameProject.Characters
 {
     public class Dragon : Unit
     {
-        public Dragon(string name, int health, DragonTypes type, int returnDamage, int experienceDrop, int goldDrop) :
+        public Dragon(string name, int health, DragonTypes type, int returnDamage,int goldDrop) :
             base(name, health, returnDamage)
         {
-            this.Experience = experienceDrop;
             this.DragonType = type;
             this.ReturnDamage = returnDamage;
             this.GoldDrop = goldDrop;
@@ -16,7 +15,6 @@ namespace GameProject.Characters
 
         public int GoldDrop { get; set; }
 
-        public int Experience { get; set; }
 
         public DragonTypes DragonType { get; set; }
 
@@ -25,12 +23,6 @@ namespace GameProject.Characters
         public override int GetAttackDemage()
         {
             int damage = this.ReturnDamage;
-
-            if (damage <= 0)
-            {
-                damage = 10;
-            }
-
             return damage;
         }
     }

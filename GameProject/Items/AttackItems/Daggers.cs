@@ -7,8 +7,8 @@ namespace GameProject.Items.AttackItems
     {
         private const int DaggersDamage = 100;
 
-        public Daggers(string name, int price, ItemTypes item) 
-             :base(name, price, item)
+        public Daggers(string name, int price, ItemTypes itemType) 
+             :base(name, price, itemType)
         {
         }
 

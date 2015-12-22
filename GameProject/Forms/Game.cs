@@ -5,6 +5,7 @@ using GameProject.Characters;
 using GameProject.Enums;
 using GameProject.Forms;
 using GameProject.Models;
+using GameProject.Properties;
 using GameStructure.Hero;
 using Market = GameProject.Forms.Market;
 
@@ -26,23 +27,20 @@ namespace GameProject
             if (HeroMaker.wizardChoosen)
             {
                 hero = new Wizard(HeroMaker.className);
+                Image wizardLogo = Image.FromFile(@"C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\Resources\wizardstatusbar.jpg");
+                pictureBox2.Image = wizardLogo;
             }
             else
             {
                 hero = new Assasin(HeroMaker.className);
+                pictureBox2.Image = Image.FromFile(@"C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\Resources\logo status bar.png");
             }
             NameLabel.Text = HeroMaker.className;
             HealthLabel.Text = hero.Health.ToString();
             healthBar.Maximum = hero.Health;
             healthBar.Value = hero.Health;
             healthBar.Minimum = 0;
-
-            if (healthBar.Value < 0)
-            {
-                healthBar.Value = 0;
-            }
-
-
+            DamageLabelStatus.Text = hero.GetAttackDemage().ToString();
         }
 
         private void StartGame_Click(object sender, EventArgs e)
@@ -60,8 +58,19 @@ namespace GameProject
             else
             {
                 HealthLabel.Text = health.ToString();
-                healthBar.Value = health;
+                if (health > healthBar.Maximum)
+                {
+                    healthBar.Value = healthBar.Maximum;
+                    HealthLabel.Text = healthBar.Maximum.ToString();
+                    MessageBox.Show("You're already at full health, but we're gonna get your money tho.");
+                }
+                else
+                {
+                    healthBar.Value = health;
+                }
             }
+            DamageLabelStatus.Text = hero.AttackDamage.ToString();
+
         }
 
         private void Battle_Click(object sender, EventArgs e)
@@ -79,12 +88,6 @@ namespace GameProject
 
         private void KeyPress(object sender, KeyEventArgs e)
         {
-            PlayerInfo playerInfo = new PlayerInfo(this);
-
-            if (e.KeyCode == Keys.C)
-            {
-                playerInfo.Show();
-            }
 
             if (e.KeyCode == Keys.M)
             {
@@ -104,6 +107,11 @@ namespace GameProject
                 EndGame endGame = new EndGame();
                 this.Close();
                 endGame.Show();
+            }
+
+            if (reason == ExitReason.PlayerWin)
+            {
+                MessageBox.Show("You win!");
             }
         }
 
@@ -126,7 +134,8 @@ namespace GameProject
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            OnyxLair onyxLair = new OnyxLair(this);
+            DragonEra onyxLair = new DragonEra();
+            this.Close();
             onyxLair.Show();
         }
     }

@@ -5,22 +5,17 @@ using GameProject.Enums;
 
 namespace GameProject.Forms
 {
-    public partial class OnyxLair : Form
+    public partial class DragonEra : Form
     {
-        Dragon onyx = DragonFactory.CreateDragon(DragonTypes.Onyx);
-
+       
         private Game game;
-        private bool used = false;
+        private int healCounter;
+        private int executeCounter;
+        Onyx onyx = (Onyx)DragonFactory.CreateDragon(DragonTypes.Onyx);
 
-        public OnyxLair(Game game)
+        public DragonEra()
         {
             InitializeComponent();
-            if (used)
-            {
-                button3.Enabled = false;
-            }
-
-            this.game = game;
         }
 
         private void OnyxLair_Load(object sender, EventArgs e)
@@ -29,69 +24,101 @@ namespace GameProject.Forms
             OnyxHealthBar.Value = onyx.Health;
             OnyxDamage.Text = onyx.AttackDamage.ToString();
             OnyxHealth.Text = onyx.Health.ToString();
-
             HeroHealth.Text = Game.hero.Health.ToString();
             HeroDamage.Text = Game.hero.AttackDamage.ToString();
-
             PlayerHealthBar.Maximum = Game.hero.Health;
             PlayerHealthBar.Value = Game.hero.Health;
 
+            HealButton.Enabled = false;
+            ExecuteAssasin.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void UpdateHealth(int heroHealth, int dragonHealth)
         {
-            onyx.Health -= Game.hero.AttackDamage;
-            Game.hero.Health -= onyx.AttackDamage;
-            UpdateHealth(Game.hero.Health);
-            OnyxHealthBar.Value = onyx.Health;
-            OnyxHealth.Text = onyx.Health.ToString();
-
-            if (onyx.Health <= 0 || OnyxHealthBar.Value <= 0)
+            if (heroHealth < 0)
             {
-                MessageBox.Show("Good job! You ended the Dragon Era and won the game!!!");
-                Environment.Exit(0);
+                PlayerHealthBar.Maximum = 0;
+                PlayerHealthBar.Value = 0;
             }
-
-            CheckIfDead(Game.hero.Health);
-        }
-
-
-        public void UpdateHealth(int health)
-        {
-            PlayerHealthBar.Value = health;
-            HeroHealth.Text = health.ToString();
-
-            if (health < 0)
+            else if (dragonHealth < 0)
             {
-                EndGame endGame = new EndGame();
-                endGame.Show();
+                OnyxHealthBar.Maximum = 0;
+                OnyxHealthBar.Value = 0;
+            }
+            else
+            {
+                PlayerHealthBar.Value = heroHealth;
+                OnyxHealthBar.Value = dragonHealth;
+                HeroHealth.Text = heroHealth.ToString();
+                OnyxHealth.Text = dragonHealth.ToString();
             }
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Game.assasin.Heal();
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            onyx.Health -= Game.hero.AttackDamage * 3;
-            OnyxHealthBar.Value = onyx.Health;
-            OnyxHealth.Text = onyx.Health.ToString();
-            button3.Enabled = false;
 
-        }
-
-        private void CheckIfDead(int health)
+        private void CheckIfDead(int heroHealth, int dragonHealth)
         {
-            if (health <= 0)
+            if (dragonHealth <= 0)
             {
                 this.Close();
-                game.Close();
+                MessageBox.Show("You ended the Dragon Era. Good job!");
+            }
+
+            if (heroHealth <= 0)
+            {
+                this.Close();
                 EndGame endGame = new EndGame();
                 endGame.Show();
             }
+        }
+
+
+
+        private void Cooldowns()
+        {
+            healCounter++;
+            executeCounter++;
+
+            if (healCounter == 3)
+            {
+                HealButton.Enabled = true;
+            }
+            else
+            {
+                HealButton.Enabled = false;
+            }
+
+            if (executeCounter == 5)
+            {
+                ExecuteAssasin.Enabled = true;
+            }
+            else
+            {
+                ExecuteAssasin.Enabled = false;
+            }
+        }
+
+        private void AttackButton_Click_1(object sender, EventArgs e)
+        {
+            Game.hero.DoBattleOnyx(onyx);
+            CheckIfDead(Game.hero.Health, onyx.Health);
+            UpdateHealth(Game.hero.Health, onyx.Health);
+            Cooldowns();
+        }
+
+        private void ExecuteAssasin_Click(object sender, EventArgs e)
+        {
+            onyx.Health -= Game.hero.AttackDamage * 3;
+            UpdateHealth(Game.hero.Health, onyx.Health);
+            ExecuteAssasin.Enabled = false;
+        }
+
+        private void HealButton_Click_1(object sender, EventArgs e)
+        {
+            Game.hero.Heal();
+            UpdateHealth(Game.hero.Health, onyx.Health);
+            HealButton.Enabled = false;
         }
     }
 }

@@ -10,13 +10,14 @@ namespace GameProject.Characters
             switch (type)
             {
                 case DragonTypes.Wyvern:
-                    return new Dragon("Wyvern", 200, DragonTypes.Wyvern, 80 , 150, 135);
+                    return new Dragon("Wyvern", 200, DragonTypes.Wyvern, 80, 135);
                 case DragonTypes.Eragon:
-                    return new Dragon("Eragon", 200, DragonTypes.Eragon, 100, 200, 190);
+                    return new Dragon("Eragon", 200, DragonTypes.Eragon, 100 ,190);
                 case DragonTypes.Longwing:
-                    return new Dragon("Longwing", 200, DragonTypes.Longwing, 40, 100, 85);
+                    return new Dragon("Longwing", 200, DragonTypes.Longwing, 40, 85);
                 case DragonTypes.Onyx:
-                    return new Dragon("Onyx", 2000, DragonTypes.Onyx, 50, 0, 0);
+                    return new Onyx(BehaviorType.Aggressive);
+
                 default: throw new ArgumentException("Invalid enemy type.");
             }
         }

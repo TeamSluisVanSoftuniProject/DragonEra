@@ -19,7 +19,7 @@ namespace GameProject
 
         private void quitButton_Click(object sender, EventArgs e)
         {
-            System.Environment.Exit(0);
+            Environment.Exit(0);
         }
 
         private void MainMenu_Load(object sender, EventArgs e)

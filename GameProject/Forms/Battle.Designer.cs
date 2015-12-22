@@ -228,6 +228,7 @@
             this.OnyxButton.TabIndex = 15;
             this.OnyxButton.Text = "Enter Onyx\'s Lair";
             this.OnyxButton.UseVisualStyleBackColor = true;
+            this.OnyxButton.Click += new System.EventHandler(this.OnyxButton_Click);
             // 
             // Battle
             // 
@@ -249,8 +250,9 @@
             this.Controls.Add(this.WyrmHealth);
             this.Controls.Add(this.LongwingHealth);
             this.Controls.Add(this.LongwingName);
-            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Battle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DragonEra";

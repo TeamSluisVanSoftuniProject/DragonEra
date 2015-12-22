@@ -3,30 +3,25 @@ using GameStructure.Hero;
 
 namespace GameProject.Characters
 {
-    public class Onyx : Unit
+    public class Onyx : Dragon
     {
-        private const int OnyxHealth = 2000;
+        private const int OnyxHealth = 3500;
         private const int OnyxDamage = 50;
         private const string OnyxName = "Onyx";
 
 
-        public Onyx(DragonTypes dragonType) 
-            :base(OnyxName, OnyxHealth, OnyxDamage)
+        public Onyx(BehaviorType behaviorType) 
+            :base(OnyxName, OnyxHealth, DragonTypes.Onyx, OnyxDamage, 0)
         {
-            this.DragonType = dragonType;
+            this.BehaviorType = behaviorType;
         }
 
-        public DragonTypes DragonType { get; set; }
+        public BehaviorType BehaviorType { get; set; }
+
 
         public override int GetAttackDemage()
         {
             int damage = this.AttackDamage;
-
-            if (damage <= 0)
-            {
-                damage = 10;
-            }
-
             return damage;
         }
 

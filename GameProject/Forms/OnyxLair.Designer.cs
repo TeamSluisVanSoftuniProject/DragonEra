@@ -1,6 +1,6 @@
 ﻿namespace GameProject.Forms
 {
-    partial class OnyxLair
+    partial class DragonEra
     {
         /// <summary>
         /// Required designer variable.
@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OnyxLair));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DragonEra));
             this.PlayerHealthBar = new System.Windows.Forms.ProgressBar();
             this.OnyxHealthBar = new System.Windows.Forms.ProgressBar();
-            this.button1 = new System.Windows.Forms.Button();
             this.HeroDamage = new System.Windows.Forms.Label();
             this.HeroHealth = new System.Windows.Forms.Label();
             this.OnyxDamage = new System.Windows.Forms.Label();
             this.OnyxHealth = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AttackButton = new System.Windows.Forms.Button();
+            this.HealButton = new System.Windows.Forms.Button();
+            this.ExecuteAssasin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PlayerHealthBar
@@ -53,16 +53,6 @@
             this.OnyxHealthBar.Name = "OnyxHealthBar";
             this.OnyxHealthBar.Size = new System.Drawing.Size(220, 35);
             this.OnyxHealthBar.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(461, 285);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Attack";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // HeroDamage
             // 
@@ -108,42 +98,82 @@
             this.OnyxHealth.TabIndex = 6;
             this.OnyxHealth.Text = "label4";
             // 
-            // button2
+            // AttackButton
             // 
-            this.button2.Location = new System.Drawing.Point(202, 450);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "UseHeal";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.AttackButton.BackColor = System.Drawing.Color.DimGray;
+            this.AttackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AttackButton.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.AttackButton.FlatAppearance.BorderSize = 3;
+            this.AttackButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.AttackButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.AttackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AttackButton.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AttackButton.ForeColor = System.Drawing.Color.LightGray;
+            this.AttackButton.Location = new System.Drawing.Point(429, 300);
+            this.AttackButton.Name = "AttackButton";
+            this.AttackButton.Size = new System.Drawing.Size(151, 50);
+            this.AttackButton.TabIndex = 9;
+            this.AttackButton.Text = "ATTACK";
+            this.AttackButton.UseVisualStyleBackColor = true;
+            this.AttackButton.Click += new System.EventHandler(this.AttackButton_Click_1);
             // 
-            // button3
+            // HealButton
             // 
-            this.button3.Location = new System.Drawing.Point(174, 479);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(133, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Execute (3x Damage)";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.HealButton.BackColor = System.Drawing.Color.DimGray;
+            this.HealButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HealButton.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.HealButton.FlatAppearance.BorderSize = 3;
+            this.HealButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.HealButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.HealButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HealButton.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.HealButton.ForeColor = System.Drawing.Color.LightGray;
+            this.HealButton.Location = new System.Drawing.Point(186, 437);
+            this.HealButton.Name = "HealButton";
+            this.HealButton.Size = new System.Drawing.Size(100, 41);
+            this.HealButton.TabIndex = 10;
+            this.HealButton.Text = "Heal";
+            this.HealButton.UseVisualStyleBackColor = true;
+            this.HealButton.Click += new System.EventHandler(this.HealButton_Click_1);
             // 
-            // OnyxLair
+            // ExecuteAssasin
+            // 
+            this.ExecuteAssasin.BackColor = System.Drawing.Color.DimGray;
+            this.ExecuteAssasin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ExecuteAssasin.FlatAppearance.BorderColor = System.Drawing.Color.LightGray;
+            this.ExecuteAssasin.FlatAppearance.BorderSize = 3;
+            this.ExecuteAssasin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.ExecuteAssasin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.ExecuteAssasin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExecuteAssasin.Font = new System.Drawing.Font("Impact", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ExecuteAssasin.ForeColor = System.Drawing.Color.LightGray;
+            this.ExecuteAssasin.Location = new System.Drawing.Point(133, 490);
+            this.ExecuteAssasin.Name = "ExecuteAssasin";
+            this.ExecuteAssasin.Size = new System.Drawing.Size(202, 41);
+            this.ExecuteAssasin.TabIndex = 11;
+            this.ExecuteAssasin.Text = "Execute(3x Damage)";
+            this.ExecuteAssasin.UseVisualStyleBackColor = true;
+            this.ExecuteAssasin.Click += new System.EventHandler(this.ExecuteAssasin_Click);
+            // 
+            // DragonEra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(933, 595);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.ExecuteAssasin);
+            this.Controls.Add(this.HealButton);
+            this.Controls.Add(this.AttackButton);
             this.Controls.Add(this.OnyxHealth);
             this.Controls.Add(this.OnyxDamage);
             this.Controls.Add(this.HeroHealth);
             this.Controls.Add(this.HeroDamage);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.OnyxHealthBar);
             this.Controls.Add(this.PlayerHealthBar);
-            this.Name = "OnyxLair";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "DragonEra";
             this.Text = "OnyxLair";
             this.Load += new System.EventHandler(this.OnyxLair_Load);
             this.ResumeLayout(false);
@@ -155,12 +185,12 @@
 
         private System.Windows.Forms.ProgressBar PlayerHealthBar;
         private System.Windows.Forms.ProgressBar OnyxHealthBar;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label HeroDamage;
         private System.Windows.Forms.Label HeroHealth;
         private System.Windows.Forms.Label OnyxDamage;
         private System.Windows.Forms.Label OnyxHealth;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button AttackButton;
+        public System.Windows.Forms.Button HealButton;
+        public System.Windows.Forms.Button ExecuteAssasin;
     }
 }

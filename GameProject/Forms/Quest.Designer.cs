@@ -122,6 +122,8 @@
             this.Controls.Add(this.LongCount);
             this.Controls.Add(this.CompleteButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Quest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DragonEra";

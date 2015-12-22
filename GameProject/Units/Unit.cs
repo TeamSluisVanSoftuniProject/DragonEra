@@ -38,10 +38,6 @@ namespace GameStructure.Hero
                 {
                     this.health = 0;
                 }
-                else if (value > 200)
-                {
-                    this.health = 200;
-                }
                 this.health = value;
             }
         }

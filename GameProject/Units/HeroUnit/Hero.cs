@@ -28,11 +28,6 @@ namespace GameStructure.Hero
 
         public static event EventHandler QuestWarning;
 
-        public static void Warning()
-        {
-            MessageBox.Show("Good job! Your quest is " + precentage + "% completed");
-        }
-
         public int Experience { get; set; }
 
         public int Gold { get; set; }
@@ -46,12 +41,6 @@ namespace GameStructure.Hero
         public override int GetAttackDemage()
         {
             int damage = this.AttackDamage;
-
-            if (damage <= 0)
-            {
-                damage = 10;
-            }
-
             return damage;
         }
 
@@ -61,74 +50,69 @@ namespace GameStructure.Hero
             var playerDamage = this.GetAttackDemage();
             var dragonDamage = dragon.GetAttackDemage();
 
-            if (this.Health <= 0)
-            {
-                Game.game.ExitGame(ExitReason.PlayerDie);
-            }
-
             if (playerDamage > dragonHealth)
             {
-                if (precentage == 70)
-                {
-                    QuestWarning = Warning;
-                    QuestWarning.Invoke();
-                }
-
-                this.Experience += dragon.Experience;
                 this.Gold += dragon.GoldDrop;
                 this.Health -= dragonDamage;
 
-                if (this.Experience == 500)
+                MessageBox.Show(String.Format("You have just killed {0}! You earned : {1} Gold!", dragon.Name, dragon.GoldDrop));
+            }
+
+            UpdateQuest(dragon);
+        }
+
+        public void DoBattleOnyx(Onyx onyx)
+        {
+            this.Health -= onyx.ReturnDamage;
+            onyx.Health -= AttackDamage;
+        }
+
+        public void UpdateQuest(Dragon dragon)
+        {
+            if (Quest.accepted)
+            {
+                if (dragon.Name == "Longwing")
                 {
-                    this.Level++;
-                    MessageBox.Show("You leveled up! You're now level " + this.Level + "!");
+                    if (Quest.LongwingCount >= 4)
+                    {
+                        Quest.LongwingCount = 4;
+                    }
+                    else
+                    {
+                        Quest.LongwingCount++;
+                    }
+
                 }
-
-                MessageBox.Show(String.Format("You just killed {0}! You earned : {1} gold and {2} experience", dragon.Name, dragon.GoldDrop, dragon.Experience));
-
-                if (Quest.accepted)
+                if (dragon.Name == "Wyvern")
                 {
-                    if (dragon.Name == "Longwing")
+                    if (Quest.WyvernCount >= 4)
                     {
-                        if (Quest.LongwingCount >= 4)
-                        {
-                            Quest.LongwingCount = 4;
-                        }
-                        else
-                        {
-                            Quest.LongwingCount++;
-                        }
-
+                        Quest.WyvernCount = 4;
                     }
-                    if (dragon.Name == "Wyvern")
+                    else
                     {
-                        if (Quest.WyvernCount >= 4)
-                        {
-                            Quest.WyvernCount = 4;
-                        }
-                        else
-                        {
-                            Quest.WyvernCount = 4;
-                        }
+                        Quest.WyvernCount = 4;
                     }
-                    if (dragon.Name == "Eragon")
+                }
+                if (dragon.Name == "Eragon")
+                {
+                    if (Quest.EragonCount >= 4)
                     {
-                        if (Quest.EragonCount >= 4)
-                        {
-                            Quest.EragonCount = 4;
-                        }
-                        else
-                        {
-                            Quest.EragonCount++;
-                        }
+                        Quest.EragonCount = 4;
                     }
-
-                    if (Quest.LongwingCount + Quest.WyvernCount + Quest.EragonCount == 7)
+                    else
                     {
-                        precentage = 70;
+                        Quest.EragonCount++;
                     }
                 }
             }
         }
+
+        public void Heal()
+        {
+            this.Health += 90;
+        }
+
+
     }
 }

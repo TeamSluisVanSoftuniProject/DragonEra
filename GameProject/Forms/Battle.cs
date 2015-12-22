@@ -71,5 +71,11 @@ namespace GameProject.Forms
                 endGame.Show();
             }
         }
+
+        private void OnyxButton_Click(object sender, EventArgs e)
+        {
+            DragonEra onyxLair = new DragonEra();
+            onyxLair.Show();
+        }
     }
 }
