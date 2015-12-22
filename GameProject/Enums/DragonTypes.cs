@@ -5,6 +5,7 @@
         Longwing,
         Wyvern,
         Eragon,
-        Saphira
+        Saphira,
+        Onyx
     }
 }

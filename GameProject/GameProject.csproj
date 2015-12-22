@@ -46,12 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\ItemTypes.cs" />
     <Compile Include="Enums\DragonTypes.cs" />
+    <Compile Include="Enums\ExitReason.cs" />
     <Compile Include="Forms\EndGame.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\EndGame.Designer.cs">
       <DependentUpon>EndGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OnyxLair.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OnyxLair.Designer.cs">
+      <DependentUpon>OnyxLair.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PlayerInfo.cs">
       <SubType>Form</SubType>
@@ -65,18 +73,28 @@
     <Compile Include="Forms\Quest.Designer.cs">
       <DependentUpon>Quest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IKillable.cs" />
+    <Compile Include="Interfaces\IInventory.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Interfaces\IUnit.cs" />
+    <Compile Include="Items\AttackItems\AttackItem.cs" />
+    <Compile Include="Items\AttackItems\Daggers.cs" />
+    <Compile Include="Items\AttackItems\Staff.cs" />
+    <Compile Include="Items\HealthItems\HealthItem.cs" />
+    <Compile Include="Items\HealthItems\Potion.cs" />
+    <Compile Include="Items\Item.cs" />
+    <Compile Include="Items\ItemFactory.cs" />
     <Compile Include="Messages\Constants.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Units\CreatureUnit\Onyx.cs" />
     <Compile Include="Units\HeroUnit\Assasin.cs" />
     <Compile Include="Units\HeroUnit\Hero.cs" />
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="Units\CreatureUnit\Dragon.cs" />
-    <Compile Include="Units\CreatureUnit\CreaturesFactory.cs" />
+    <Compile Include="Units\CreatureUnit\DragonFactory.cs" />
     <Compile Include="Units\Unit.cs" />
     <Compile Include="Units\HeroUnit\Wizard.cs" />
     <Compile Include="Forms\Battle.cs">
@@ -90,12 +108,6 @@
     </Compile>
     <Compile Include="Forms\Game.Designer.cs">
       <DependentUpon>Game.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Inventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Inventory.Designer.cs">
-      <DependentUpon>Inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainMenu.cs">
       <SubType>Form</SubType>
@@ -124,11 +136,11 @@
     <EmbeddedResource Include="Forms\Battle.resx">
       <DependentUpon>Battle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EndGame.resx">
+      <DependentUpon>EndGame.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Game.resx">
       <DependentUpon>Game.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory.resx">
-      <DependentUpon>Inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -138,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Market.resx">
       <DependentUpon>Market.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OnyxLair.resx">
+      <DependentUpon>OnyxLair.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PlayerInfo.resx">
       <DependentUpon>PlayerInfo.cs</DependentUpon>
@@ -167,17 +182,23 @@
   <ItemGroup />
   <ItemGroup>
     <None Include="Resources\1234.png" />
+    <None Include="Resources\2e37661c-8310-44b5-a872-60f81a10eb20.jpg" />
     <Content Include="Resources\asd.png" />
     <Content Include="Resources\BackgroundMainMenu.jpg" />
     <None Include="Resources\bar1.png" />
     <None Include="Resources\BattleFieldBG.png" />
     <Content Include="Resources\CreateClassBG.jpg" />
+    <None Include="Resources\DragonWallpaper.png" />
+    <None Include="Resources\DragonWallaperpNedugav.png" />
     <Content Include="Resources\HoverAssasin.png" />
     <Content Include="Resources\LogoAssasin.png" />
     <Content Include="Resources\LogoWizard.png" />
+    <None Include="Resources\MainGameBG-Recovered2.png" />
     <Content Include="Resources\MainGameBG.jpg" />
     <None Include="Resources\StatusBarSecond.png" />
     <None Include="Resources\QuestBG.png" />
+    <None Include="Resources\MainMenuBGDragon.png" />
+    <None Include="Resources\ResizedMarket.png" />
     <Content Include="Resources\Worgen.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

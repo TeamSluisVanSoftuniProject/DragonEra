@@ -7,8 +7,7 @@ namespace GameProject.Items.HealthItems
 {
     public class Potion : HealthItem
     {
-        private const int SmallPotionHealing = 30;
-        private const int BigPotionHealing = 60;
+        private const int SimplePotion = 50;
 
         public Potion(string name, int price, ItemTypes item)
             : base(name, price, item)
@@ -26,10 +25,8 @@ namespace GameProject.Items.HealthItems
             {
                 switch (this.ItemTypes)
                 {
-                    case ItemTypes.SmallPotion:
-                        return Potion.SmallPotionHealing;
-                    case ItemTypes.BigPotion:
-                        return Potion.BigPotionHealing;
+                    case ItemTypes.Potion:
+                        return Potion.SimplePotion;
                     default:
                         return 0;
                 }

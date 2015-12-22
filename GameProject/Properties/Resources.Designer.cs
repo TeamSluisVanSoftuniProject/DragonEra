@@ -73,6 +73,16 @@ namespace GameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2e37661c_8310_44b5_a872_60f81a10eb20 {
+            get {
+                object obj = ResourceManager.GetObject("2e37661c-8310-44b5-a872-60f81a10eb20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BackgroundMainMenu {
             get {
                 object obj = ResourceManager.GetObject("BackgroundMainMenu", resourceCulture);
@@ -123,6 +133,26 @@ namespace GameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DragonWallaperpNedugav {
+            get {
+                object obj = ResourceManager.GetObject("DragonWallaperpNedugav", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DragonWallpaper {
+            get {
+                object obj = ResourceManager.GetObject("DragonWallpaper", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MainGameBG {
             get {
                 object obj = ResourceManager.GetObject("MainGameBG", resourceCulture);
@@ -133,9 +163,39 @@ namespace GameProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MainGameBG_Recovered2 {
+            get {
+                object obj = ResourceManager.GetObject("MainGameBG-Recovered2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MainMenuBGDragon {
+            get {
+                object obj = ResourceManager.GetObject("MainMenuBGDragon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap QuestBG {
             get {
                 object obj = ResourceManager.GetObject("QuestBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ResizedMarket {
+            get {
+                object obj = ResourceManager.GetObject("ResizedMarket", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

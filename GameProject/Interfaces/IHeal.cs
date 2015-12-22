@@ -2,6 +2,6 @@
 {
     public interface IHeal
     {
-         
+        int Healing { get; set; }
     }
 }

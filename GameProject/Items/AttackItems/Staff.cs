@@ -4,7 +4,7 @@ namespace GameProject.Items.AttackItems
 {
     public class Staff : AttackItem
     {
-        private const int StaffDamage = 50;
+        private const int StaffDamage = 100;
 
         public Staff(string name, int price, ItemTypes item) 
              :base(name, price, item)

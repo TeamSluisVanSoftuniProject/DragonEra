@@ -2,6 +2,11 @@
 {
     public interface IAttack
     {
-         
+        int AttackDamage
+        {
+            get;
+        }
+
+        int GetAttackDemage();
     }
 }

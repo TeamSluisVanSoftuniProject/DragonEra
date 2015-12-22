@@ -11,12 +11,12 @@ namespace GameProject.Items
         {
             switch (item)
             {
-                case ItemTypes.SmallPotion:
-                    return new Potion("Small potion", 50, ItemTypes.SmallPotion);
-                case ItemTypes.BigPotion:
-                    return new Potion("Big potion", 75, ItemTypes.BigPotion);
+                case ItemTypes.Potion:
+                    return new Potion("Small potion", 100, ItemTypes.Potion);
                 case ItemTypes.Daggers:
-                    return new Daggers("Daggers of Faith", 30, ItemTypes.Daggers);
+                    return new Daggers("Daggers of Faith", 1500, ItemTypes.Daggers);
+                case ItemTypes.Staff:
+                    return new Staff("Rod of Atos", 1800, ItemTypes.Staff);
 
                 default: throw new ArgumentException("Invalid enemy type.");
             }

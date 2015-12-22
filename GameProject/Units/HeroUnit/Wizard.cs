@@ -5,15 +5,12 @@ namespace GameProject.Characters
 {
     public class Wizard : Hero
     {
-        private const int SpellDamage = 350;
-        public const int WizardHealth= 200;
-        private const int Mana = 200;
-        private int mana;
+        private const int WizardDamage = 300;
+        public const int WizardHealth= 250;
 
         public Wizard(string name) 
-            : base(name, WizardHealth, SpellDamage)
+            : base(name, WizardHealth, WizardDamage)
         {
-            this.mana = Mana;
         }
     }
 }

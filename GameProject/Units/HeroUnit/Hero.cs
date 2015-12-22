@@ -4,21 +4,33 @@ using GameProject;
 using GameProject.Characters;
 using GameProject.Enums;
 using GameProject.Forms;
+using GameProject.Models;
 
 namespace GameStructure.Hero
 {
+    public delegate void EventHandler();
+
     public abstract class Hero : Unit
     {
         private int experience;
         private int kills;
         private int gold;
         private Inventory inventory;
+        private static int precentage;
+        private Game game;
 
         protected Hero(string name, int health, int attackDamage)
             : base(name, health, attackDamage)
         {
             this.inventory = new Inventory();
             this.Level = 1;
+        }
+
+        public static event EventHandler QuestWarning;
+
+        public static void Warning()
+        {
+            MessageBox.Show("Good job! Your quest is " + precentage + "% completed");
         }
 
         public int Experience { get; set; }
@@ -45,45 +57,78 @@ namespace GameStructure.Hero
 
         public void DoBattle(Dragon dragon)
         {
-            var enemyHealth = dragon.Health;
+            var dragonHealth = dragon.Health;
             var playerDamage = this.GetAttackDemage();
             var dragonDamage = dragon.GetAttackDemage();
 
-            if (playerDamage > enemyHealth)
+            if (this.Health <= 0)
             {
+                Game.game.ExitGame(ExitReason.PlayerDie);
+            }
+
+            if (playerDamage > dragonHealth)
+            {
+                if (precentage == 70)
+                {
+                    QuestWarning = Warning;
+                    QuestWarning.Invoke();
+                }
+
                 this.Experience += dragon.Experience;
                 this.Gold += dragon.GoldDrop;
                 this.Health -= dragonDamage;
 
-                if (this.Experience % 300 == 0)
+                if (this.Experience == 500)
                 {
-                    MessageBox.Show("You leveled up! You're now level " + this.Level + "!");
                     this.Level++;
+                    MessageBox.Show("You leveled up! You're now level " + this.Level + "!");
                 }
-                MessageBox.Show(Constants.CreatureKilled + dragon.Name);
-            }
-            else
-            {
-                this.Health -= dragonDamage * 2;
-            }
 
-            if (Quest.accepted)
-            {
-                if (dragon.Name == "Longwing")
+                MessageBox.Show(String.Format("You just killed {0}! You earned : {1} gold and {2} experience", dragon.Name, dragon.GoldDrop, dragon.Experience));
+
+                if (Quest.accepted)
                 {
-                    Quest.LongwingCount++;
-                }
-                if (dragon.Name == "Wyvern")
-                {
-                    Quest.WyvernCount++;
-                }
-                if (dragon.Name == "Eragon")
-                {
-                    Quest.EragonCount++;
+                    if (dragon.Name == "Longwing")
+                    {
+                        if (Quest.LongwingCount >= 4)
+                        {
+                            Quest.LongwingCount = 4;
+                        }
+                        else
+                        {
+                            Quest.LongwingCount++;
+                        }
+
+                    }
+                    if (dragon.Name == "Wyvern")
+                    {
+                        if (Quest.WyvernCount >= 4)
+                        {
+                            Quest.WyvernCount = 4;
+                        }
+                        else
+                        {
+                            Quest.WyvernCount = 4;
+                        }
+                    }
+                    if (dragon.Name == "Eragon")
+                    {
+                        if (Quest.EragonCount >= 4)
+                        {
+                            Quest.EragonCount = 4;
+                        }
+                        else
+                        {
+                            Quest.EragonCount++;
+                        }
+                    }
+
+                    if (Quest.LongwingCount + Quest.WyvernCount + Quest.EragonCount == 7)
+                    {
+                        precentage = 70;
+                    }
                 }
             }
-
         }
     }
-
 }

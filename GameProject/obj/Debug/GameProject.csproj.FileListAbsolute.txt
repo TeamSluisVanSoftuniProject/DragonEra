@@ -9,8 +9,9 @@ C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.exe
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.pdb
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Game.resources
-C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Inventory.resources
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Forms.Battle.resources
 C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Forms.Market.resources
 C:\Users\Deny\documents\visual studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Forms.PlayerInfo.resources
 C:\Users\Deny\documents\visual studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Forms.Quest.resources
+C:\Users\Deny\Documents\Visual Studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Forms.EndGame.resources
+C:\Users\Deny\documents\visual studio 2015\Projects\GameProject\GameProject\obj\Debug\GameProject.Forms.OnyxLair.resources

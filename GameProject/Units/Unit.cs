@@ -1,8 +1,9 @@
 ﻿using System;
+using GameProject.Interfaces;
 
 namespace GameStructure.Hero
 {
-    public abstract class Unit
+    public abstract class Unit : IAttack, IUnit
     {
         private string name;
         private int health;
@@ -20,9 +21,9 @@ namespace GameStructure.Hero
             get { return this.attackDamage; }
             set
             {
-                if (value <= 0)
+                if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    this.health = 0;
                 }
                 this.attackDamage = value;
             }
@@ -35,7 +36,11 @@ namespace GameStructure.Hero
             {
                 if (value < 0)
                 {
-                    throw new ArgumentOutOfRangeException();
+                    this.health = 0;
+                }
+                else if (value > 200)
+                {
+                    this.health = 200;
                 }
                 this.health = value;
             }

@@ -9,7 +9,7 @@ namespace GameProject.Characters
             base(name, health, returnDamage)
         {
             this.Experience = experienceDrop;
-            this.EnemyType = type;
+            this.DragonType = type;
             this.ReturnDamage = returnDamage;
             this.GoldDrop = goldDrop;
         }
@@ -18,7 +18,7 @@ namespace GameProject.Characters
 
         public int Experience { get; set; }
 
-        public DragonTypes EnemyType { get; set; }
+        public DragonTypes DragonType { get; set; }
 
         public int ReturnDamage { get;}
 

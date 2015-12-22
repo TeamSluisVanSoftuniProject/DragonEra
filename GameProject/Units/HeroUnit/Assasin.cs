@@ -4,12 +4,17 @@ namespace GameProject.Characters
 {
     public class Assasin : Hero
     {
-        private new const int AttackDamage = 350;
-        private new const int Health = 200;
+        private const int AssasinDamage = 200;
+        private const int AssasinsHealth = 300;
 
         public Assasin(string name) 
-            : base(name, Health, AttackDamage)
+            : base(name, AssasinsHealth, AssasinDamage)
         {
+        }
+
+        public void Heal()
+        {
+            this.Health += 200;
         }
 
     }
